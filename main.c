@@ -2,53 +2,53 @@
 #include <stdlib.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+void print_image(int image[5][5])
+{
+	int i,j;
+	int *ptr = &image[0][0];
+	
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			printf("%d",*ptr);
+			ptr = ptr + 1;
+		}
+		printf("\n");
+	}
+}
 
-int addfunc(int a, int b)
+void brighten_image(int image[5][5])
 {
-	return a+b;
+	int i,j;
+	int *ptr = &image[0][0];
+	
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			*ptr = *ptr + 10;
+			ptr = ptr +1;
+			
+		}}
+		printf("\n");
 }
-int subfunc(int a, int b)
-{
-	return a-b;
-}
-int mulfunc(int a, int b)
-{
-	return a*b;
-}
-int divfunc(int a, int b)
-{
-	return a/b;
-}
+
 int main(int argc, char *argv[]) {
 	
-	int i,j;
-	char op;
-	int (*calcfunc)(int, int);
-	
-	printf("input calculation : ");
-	scanf("%d %c %d",&i, &op, &j);
-	
-	switch(op)
-	{
-		case'+':
-			calcfunc = addfunc;
-			break;
-			
-		case'-':
-			calcfunc = subfunc;
-			break;			
-			
-		case'*':
-			calcfunc = mulfunc;
-			break;
-		
-		case'/':
-			calcfunc = divfunc;
-			break;
-	}
-	
-	printf("result : %i\n", calcfunc(i, j));
-	
+	 int image[5][5]={
+	 		{10, 20, 30, 40, 50},
+	 		{10, 20, 30, 40, 50},
+	 		{10, 20, 30, 40, 50},
+	 		{10, 20, 30, 40, 50},
+	 		{10, 20, 30, 40, 50}
 	 
+		};	
+	
+	print_image(image);
+	brighten_image(image);
+	print_image(image);
+	
 	return 0;
-}
+ 	}
+
